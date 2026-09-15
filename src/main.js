@@ -2,35 +2,35 @@ import './style.css'
 
 const gallery = [
   {
-    src: '/photos/action-dribble.jpg',
+    src: 'photos/action-dribble.jpg',
     alt: 'Abdellah Moutal en dribble, maillot vert n°24',
   },
   {
-    src: '/photos/action-strike.jpg',
+    src: 'photos/action-strike.jpg',
     alt: 'Abdellah Moutal en frappe sur le terrain',
   },
   {
-    src: '/photos/action-duel.jpg',
+    src: 'photos/action-duel.jpg',
     alt: 'Abdellah Moutal en duel avec un adversaire',
   },
   {
-    src: '/photos/match-midfield.jpg',
+    src: 'photos/match-midfield.jpg',
     alt: 'Abdellah Moutal au milieu de terrain',
   },
   {
-    src: '/photos/portrait-match.jpg',
+    src: 'photos/portrait-match.jpg',
     alt: 'Portrait d’Abdellah Moutal après un match',
   },
   {
-    src: '/photos/training-pitch.jpg',
+    src: 'photos/training-pitch.jpg',
     alt: 'Abdellah Moutal à l’entraînement',
   },
   {
-    src: '/photos/team-white-pitch.jpg',
+    src: 'photos/team-white-pitch.jpg',
     alt: 'Équipe FC Tevragh Zeina en tenue blanche',
   },
   {
-    src: '/photos/team-green.jpg',
+    src: 'photos/team-green.jpg',
     alt: 'Équipe FC Tevragh Zeina en tenue verte',
   },
 ]
@@ -52,7 +52,7 @@ document.querySelector('#app').innerHTML = `
       <div class="hero__media">
         <img
           class="hero__img"
-          src="/photos/hero-green-24.jpg"
+          src="photos/action-dribble.jpg"
           alt="Abdellah Moutal, maillot vert n°24 FC Tevragh Zeina"
           fetchpriority="high"
         />
@@ -80,7 +80,7 @@ document.querySelector('#app').innerHTML = `
       <div class="profil__grid">
         <figure class="profil__photo">
           <img
-            src="/photos/portrait-white.jpg"
+            src="photos/portrait-white.jpg"
             alt="Portrait d’Abdellah Moutal en tenue blanche"
           />
         </figure>
@@ -157,7 +157,7 @@ document.querySelector('#app').innerHTML = `
       </ol>
       <figure class="parcours__shot">
         <img
-          src="/photos/team-superd2.jpg"
+          src="photos/team-superd2.jpg"
           alt="Photo d’équipe Championnat Super D2 2025-2026"
         />
         <figcaption>Championnat Super D2 · étape vers la Super D1</figcaption>
@@ -215,3 +215,15 @@ const onScroll = () => {
 
 window.addEventListener('scroll', onScroll, { passive: true })
 onScroll()
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const id = link.getAttribute('href')
+    if (!id || id === '#') return
+    const target = document.querySelector(id)
+    if (!target) return
+    event.preventDefault()
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    history.replaceState(null, '', id)
+  })
+})
