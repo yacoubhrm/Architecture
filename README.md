@@ -16,6 +16,12 @@ npm run build
 npm run preview
 ```
 
+## Lien public actuel
+
+https://raw.githack.com/yacoubhrm/Architecture/gh-pages/index.html
+
+(copie CDN de la branche `gh-pages`)
+
 ## Publication
 
 Le site est compilé dans `dist/` (`firebase.json` + GitHub Pages).
