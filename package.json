@@ -1,0 +1,17 @@
+{
+  "name": "abdellah-moutal",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "bash scripts/deploy-firebase.sh",
+    "firebase": "firebase"
+  },
+  "devDependencies": {
+    "firebase-tools": "^15.30.1",
+    "vite": "^8.3.0"
+  }
+}
