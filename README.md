@@ -16,15 +16,23 @@ npm run build
 npm run preview
 ```
 
-## Déploiement Firebase Hosting
+## Publication
+
+Le site est compilé dans `dist/` (`firebase.json` + GitHub Pages).
+
+### GitHub Pages
+
+Le workflow `.github/workflows/github-pages.yml` publie `dist/` via Actions.
+URL attendue : `https://yacoubhrm.github.io/Architecture/`
+
+### Firebase Hosting
+
+Projet cible : `abdellah-moutal` → `https://abdellah-moutal.web.app`
 
 ```bash
-# Authentification (une fois)
-npx firebase login
-
-# Créer le projet Firebase si besoin, puis :
-npx firebase use --add
+npx firebase-tools login:ci
+# Ajouter le token comme secret FIREBASE_TOKEN (GitHub Actions et/ou Cloud Agent)
 npm run deploy
 ```
 
-Le site est servi depuis le dossier `dist` (voir `firebase.json`).
+Le workflow `.github/workflows/firebase-deploy.yml` utilise `secrets.FIREBASE_TOKEN`.
